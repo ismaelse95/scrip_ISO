@@ -78,9 +78,9 @@ opciones(){
 	if [ $numero2 -eq 1 ]
 		then
 			read -p "¿Que paquete quieres desinstalar? " var3
-			sudo apt remove --purge $var3 2> paquete_error.txt
-			desisntalador3=`cat paquete_error.txt | cut -d " " -f 1`
-			if [[ $desisntalador3 = "E:" ]]
+			sudo apt remove --purge $var3 > paquete_error.txt
+			desisntalador3=`cat paquete_error.txt | head -4 | tail -1`
+			if [[ $desisntalador3 = "El paquete «$var3» no está instalado, no se eliminará" ]]
 				then
 					echo " "
 					echo -e "\e[0;31mEl paquete no existe.\e[0m\n"
@@ -94,9 +94,9 @@ opciones(){
 		for i in $(seq 1 $numero2)
 			do
 				read -p "Dame el nombre del paquete $i: " var4
-				sudo apt remove --purge $var4 2> paquete_error.txt
-				desisntalador=`cat paquete_error.txt | cut -d " " -f 1`
-				if [[ $desisntalador = "E:" ]]
+				sudo apt remove --purge $var4 > paquete_error.txt
+				desisntalador=`cat paquete_error.txt | head -4 | tail -1`
+				if [[ $desisntalador = "El paquete «$var3» no está instalado, no se eliminará" ]]
 					then
 						echo " "
 						echo -e "\e[0;31mEl paquete no existe.\e[0m\n"

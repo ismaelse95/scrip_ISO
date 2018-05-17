@@ -1,6 +1,8 @@
 #! /bin/bash
 
-echo "Bienvenido al programa de instalador y desinstalador de paquetes."
+echo -e "Bienvenido al programa de instalador y desinstalador de paquetes.\n"
+
+echo "Con este scrip podras automatiza la actualización del sistema indicando qué paquetes se desean actualizar y cuales desinstalar, creando una interacción con el usuario."
 
 echo "--------------------------------------------------"
 
